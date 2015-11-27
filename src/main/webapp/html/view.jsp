@@ -5,30 +5,16 @@
 <%@ taglib prefix="liferay-portlet" uri="http://liferay.com/tld/portlet" %>
 <%@ taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme"%>
 <%@ taglib uri="/WEB-INF/tld/math.tld" prefix="math"%>
-
-
-<portlet:defineObjects />
-<liferay-theme:defineObjects />
-
-
 <%@page import="com.liferay.portal.kernel.dao.search.SearchContainer"%>
 <%@page import="com.liferay.portal.kernel.dao.search.DisplayTerms"%>
 <%@page import="com.liferay.portal.kernel.util.ParamUtil"%>
 <%@page import="com.liferay.portal.kernel.language.LanguageUtil"%>
 <%@page import="javax.portlet.PortletURL"%>
-<%@page import="java.util.List"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.Map"%>
-<%@page import="java.util.HashMap"%>
-<%@page import="com.liferay.portal.kernel.servlet.SessionMessages"%>
-<%@page import="com.liferay.portal.kernel.util.PropsUtil"%>
-<%@page import="com.liferay.portal.service.RoleLocalServiceUtil"%>
-<%@page import="com.liferay.portal.model.Role"%>
-<%@page import="com.liferay.portal.util.PortalUtil"%>
 <%@page import="org.springframework.web.client.RestTemplate"%>
 <%@page import="com.liferay.training.neo.model.NeoResponse"%>
 <portlet:defineObjects />
 <liferay-theme:defineObjects />
+
 <%
 NeoResponse result = new RestTemplate().getForObject(
 		"https://api.nasa.gov/neo/rest/v1/feed?api_key=gmD3rNzZsgzmD2hIeTiMC9L1ctDc8dAbmZc11JAO",
@@ -37,6 +23,9 @@ NeoResponse result = new RestTemplate().getForObject(
 renderRequest.setAttribute("neos", result.getNearEarthObjects());
 %>
 <portlet:actionURL name="searchAction" var="portletURL" />
+
+<liferay-ui:success key="saved" message="The NEO information has been saved." />
+
 <aui:form action="${portletURL}" method="post">
 <liferay-ui:search-container delta="10" emptyResultsMessage="No NEOs found">
 	<aui:nav-bar>
