@@ -13,7 +13,8 @@ public class NeoPortlet extends MVCPortlet {
 
 	private final static Log LOG = LogFactoryUtil.getLog(NeoPortlet.class);
 
-	public void updateNeo(ActionRequest actionRequest, ActionResponse actionResponse) {
+	// TODO 4: rename this method so it actually responds to a form submit
+	public void someActionMethod(ActionRequest actionRequest, ActionResponse actionResponse) {
 
 		Integer neoId = ParamUtil.getInteger(actionRequest, "id");
 		// new RestTemplate().getForObject(url, Neo.class, neoId);

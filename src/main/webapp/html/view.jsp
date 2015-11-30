@@ -24,7 +24,13 @@ renderRequest.setAttribute("neos", result.getNearEarthObjects());
 %>
 <portlet:actionURL name="searchAction" var="portletURL" />
 
-<liferay-ui:success key="saved" message="The NEO information has been saved." />
+
+<%
+	// TODO 5: display a success message upon form submit,
+	// triggered by the 'SessionMessages.add()' from the portlet class
+	// Hint: <liferay-ui:success />
+%>
+
 
 <aui:form action="${portletURL}" method="post">
 <liferay-ui:search-container delta="10" emptyResultsMessage="No NEOs found">
@@ -50,13 +56,14 @@ renderRequest.setAttribute("neos", result.getNearEarthObjects());
 			<portlet:param name="id" value="${neo.id}" />
 		</portlet:renderURL>
 
-
-		<liferay-ui:search-container-column-text name="Name" property="name" href="${detailUrl}" />
-		<liferay-ui:search-container-column-text name="Close approach date" property="closeApproachData.closeApproachDate" />
-		<liferay-ui:search-container-column-text name="Velocity (km/h)" property="closeApproachData.relativeVelocity" />
-		<liferay-ui:search-container-column-text name="Orbiting Body" property="closeApproachData.orbitingBody" />
-
-		<liferay-ui:search-container-column-text name="Potentially hazardous asteroid" property="potentiallyHazardousAsteroid" />
+		<%
+			// TODO 1: render some properties of this NEO.
+			// See getters of om.liferay.training.neo.model.Neo for inspiration.
+			// Hint: <liferay-ui:search-container-column-text />
+		
+			// TODO 2: render a link to the detail page, using ${detailUrl} set above, also using <liferay-ui:search-container-column-text />
+			// 
+		 %>  
 
 	</liferay-ui:search-container-row>
 

@@ -22,22 +22,22 @@
 	NeoResponse result = new RestTemplate().getForObject(
 		"https://api.nasa.gov/neo/rest/v1/feed?api_key=gmD3rNzZsgzmD2hIeTiMC9L1ctDc8dAbmZc11JAO",
 		NeoResponse.class);
-	for (Neo neo : result.getNearEarthObjects()) {
-		if (neo.getId() == neoId) {
-			request.setAttribute("neo", neo);
-			break;
-		}
-	}
+	
+	// TODO 3: set 'neo' as request attribute, filtering it from the result list above (result.getNearEarthObjects())
+	// Hint: (if neo.getId() == neoId)
 	
 
-	
 	request.setAttribute("listUrl", ParamUtil.getString(request, "listUrl"));
 	
 %>
 
 <portlet:actionURL name="updateNeo" var="editNeoURL" windowState="normal" />
 
-<liferay-ui:header backURL="${listUrl}" title="${neo.name}" />
+<%
+	// TODO 6: add a 'back' button here
+	// Hint: explore <liferay-ui:header /> element attributes and use the 'listUrl' request attribute defined above.
+%>
+<liferay-ui:header title="${neo.name}" />
 
 <aui:form action="${editNeoURL}" method="POST" name="fm">
 <aui:model-context bean="${neo}" model="<%= Neo.class %>" />
@@ -52,7 +52,6 @@
 
 	<aui:button-row>
 		<aui:button type="submit" />
-
 		<aui:button type="cancel" onClick="${listUrl}" />
 	</aui:button-row>
 </aui:form>
