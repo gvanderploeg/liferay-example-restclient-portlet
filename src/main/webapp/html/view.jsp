@@ -44,8 +44,12 @@ renderRequest.setAttribute("neos", result.getNearEarthObjects());
 
 	</aui:nav-bar>
 
+	<%
+		// TODO 1.5: add a total= attribute to this search-container-results element, to let
+		// the search container properly render the pagination
+	%>
 	<liferay-ui:search-container-results results="${neos.subList(searchContainer.start, math:min(searchContainer.end, neos.size()))}"
-		total="${neos.size()}" />
+		 />
 
 	<liferay-ui:search-container-row className="com.liferay.training.neo.model.Neo" keyProperty="id"
 		modelVar="neo">
