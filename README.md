@@ -8,3 +8,6 @@ Example portlet that uses Liferay Search container to consume a REST service.
 4. It should render something similar to this:
     ![Screenshot of deployed portlet before fixing TODOs](https://raw.github.com/gvanderploeg/liferay-example-restclient-portlet/master/doc/portlet-before-todos.png)
 5. Start fixing TODOs in the JSPs and portlet class
+6. After fixing all of them, the portlet should render views like these:
+    ![List view after fixing TODOs](https://raw.github.com/gvanderploeg/liferay-example-restclient-portlet/master/doc/listview-after-todos.png)
+    ![Detail view after fixing TODOs](https://raw.github.com/gvanderploeg/liferay-example-restclient-portlet/master/doc/detailview-after-todos.png)
