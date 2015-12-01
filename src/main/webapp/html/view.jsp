@@ -62,7 +62,7 @@ renderRequest.setAttribute("neos", result.getNearEarthObjects());
 
 		<%
 			// TODO 1: render some properties of this NEO.
-			// See getters of om.liferay.training.neo.model.Neo for inspiration.
+			// See getters of com.liferay.training.neo.model.Neo for inspiration.
 			// Hint: <liferay-ui:search-container-column-text />
 		
 			// TODO 2: render a link to the detail page, using ${detailUrl} set above, also using <liferay-ui:search-container-column-text />
